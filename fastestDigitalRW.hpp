@@ -71,6 +71,7 @@ _INLINE_ void fastestDigitalWrite(uint8_t pin, uint8_t val)
 
 _INLINE_ int fastestDigitalRead(uint8_t pin)
 {
+#if defined(__AVR_ATmega328P__)
 	switch(pin) {
 		// PIND
 		case  0: return (PIND >> 0) & 1;
@@ -98,6 +99,9 @@ _INLINE_ int fastestDigitalRead(uint8_t pin)
 		default:
 		return 0;
 	}
+#else
+	return digitalRead(pin);
+#endif
 }
 
 #endif  /* _HPP_FASTEST_DIGITAL_RW_HPP_ */
