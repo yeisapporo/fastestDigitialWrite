@@ -6,3 +6,4 @@ usage :
  
  fastestDigitalWrite() is thirty-five times faster than digitalWrite().
  
+ fully tested on Arduino Nano.
